@@ -13,12 +13,15 @@ Generally, we follow the **PEP 8 style guide** with the following specific modif
 | Package and Module Names | `snake_case` | `my_module` |
 | Class Names | `UpperCamel` | `MyClass` |
 | Function Names | `camelCase` | `myFunction` |
+| Property Names (`@property`) | `snake_case` | `my_property` |
 | Variable Names | `snake_case` | `my_variable` |
 | Global Variable Names | `UPPER_SNAKE` | `MY_GLOBAL` |
 | Class Variable Names | `snake_case` | `class_variable` |
 | Constant Class Variable Names | `UPPER_SNAKE` | `CLASS_CONSTANT` |
 
 **Important:** We use `camelCase` for function names to differentiate functions from variables at a glance. This also applies to stored lambda and partial functions.
+
+**Properties use `snake_case`** because they are accessed without parentheses, making them syntactically indistinguishable from attributes. Using `snake_case` signals "read me like data" and matches Python's own stdlib conventions (`Path.parent`, `Popen.returncode`, etc.).
 
 ### Never Override Python Built-ins
 
@@ -286,7 +289,7 @@ class ExampleClass:
 ### Property Docstrings
 ```python
 @property
-def myProperty(self):
+def my_property(self):
     """str: Properties should be documented in their getter method.
 
     The type can be specified at the start of the summary line.

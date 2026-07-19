@@ -40,7 +40,21 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 #--------------------------------------------------------------------------------
 # Custom functions and aliases can be added here:
 
+# ll is a common alias for Get-ChildItem -Force, similar to 'ls -la' in Linux.
 function ll { Get-ChildItem -Force $args }
+
+# rg is a wrapper for ripgrep (rg.exe) that sanitizes Windows-style paths to use forward slashes, which ripgrep prefers.
+function rg {
+    $argsSanitized = $args | ForEach-Object {
+        if ($_ -match '^[A-Z]:\\') {
+            # Convert backslashes to forward slashes for ripgrep stability
+            $_ -replace '\\', '/'
+        } else {
+            $_
+        }
+    }
+    & rg.exe $argsSanitized
+}
 
 #endregion functions and aliases
 #-------------------------------------------------------------------------------

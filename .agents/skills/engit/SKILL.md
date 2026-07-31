@@ -38,11 +38,11 @@ engit release --dry-run                # Preview without creating
 
 ### Publish Bundles
 ```powershell
-engit publish                          # Versioned folder in cwd (auto-detected version)
-engit publish --zip --output dist      # Zip into dist/ with explicit version
-engit publish --version dev            # Test build without a git tag
-engit publish --dry-run                # Preview file list
-engit publish --exclude scripts        # Extra exclusions
+engit publish bundle                         # Publish to ENVOY_BUNDLE_PUBLISH_ROOT
+engit publish bundle --zip --output dist     # Folder and zip in dist/
+engit publish bundle --version dev           # Development publish
+engit publish bundle --dry-run               # Preview file list
+engit publish bundle --exclude docs/**       # Extra exclusions
 ```
 
 ### Changelog and Status
@@ -61,10 +61,10 @@ engit pull *                      # Pull all discovered bundles
 engit web                         # Open repo on GitHub in browser
 ```
 
-### Config Publishing
+### Stack Publishing
 ```powershell
-engit publish-config studio R:/my/studio_bundles.json
-envoy --set-config bundles_config=studio   # Resolves to latest published version
+engit publish stack studio R:/my/studio.estack
+envoy --set-config stack=studio   # Resolves to latest published version
 ```
 
 ### GitHub Search

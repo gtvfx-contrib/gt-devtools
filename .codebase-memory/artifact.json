@@ -1,0 +1,11 @@
+{
+    "schema_version": 2,
+    "commit": "b4469d1b9c8462adec95cb348fc96c9c7c3af8c6",
+    "indexed_at": "2026-07-31T17:10:50Z",
+    "project": "V-repo-gtvfx-envoy-devtools",
+    "nodes": 384,
+    "edges": 556,
+    "original_size": 1572864,
+    "compressed_size": 174577,
+    "compression_level": 9
+}
